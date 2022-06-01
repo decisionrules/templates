@@ -2,6 +2,12 @@
    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
     "parameters": {
+        "licenseKey": {
+            "type": "string",
+            "metadata": {
+                "description": "You can generate license key here: https://www.decisionrules.io/on-premise#license"
+            }
+        },
         "clientAppName": {
            "type": "string",
            "defaultValue": "dr-client-app",
@@ -34,7 +40,7 @@
            "type": "string",
            "defaultValue": "dr-environment",
            "metadata": {
-               "description": "Name of the environmetn"
+               "description": "Name of the environment"
            }
         },
         "workspaceName": {
@@ -212,7 +218,7 @@
                                 },
                                 {
                                     "name": "LICENSE_KEY",
-                                    "value": "OgIv0D8QpmwigueTCe3yTi5vK5w53EAMvEOHXrSTjP1VMzsb"
+                                    "value": "[parameters('licenseKey')]"
                                 }
                             ],
                             "probes": [
